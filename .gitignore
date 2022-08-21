@@ -1,0 +1,17 @@
+target/
+
+### ECLIPSE ###
+.apt_generated
+.classpath
+!demo/reltio-connector-demo/.classpath
+.factorypath
+.springBeans
+reltio-connector.zip
+.settings
+.project
+
+.idea/
+mvnw
+mvnw.cmd
+shop.iml
+
