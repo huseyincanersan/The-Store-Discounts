@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 public class DiscountTest {
 
 	@Test
-	public void testCalculateTotal_GroceriesOnly() {
+	public void testCalculateTotal_PhonesOnly() {
 		List<Item> items = new ArrayList<Item>();
 		items.add(new Item(ItemType.PHONE, new BigDecimal(100.0)));
 		items.add(new Item(ItemType.PHONE, new BigDecimal(100.0)));
@@ -28,7 +28,7 @@ public class DiscountTest {
 	}
 
 	@Test
-	public void testCalculateTotalNonGroceriesOnly() {
+	public void testCalculateTotalNonPhonesOnly() {
 		List<Item> items = new ArrayList<Item>();
 		items.add(new Item(ItemType.CLOTHES, new BigDecimal(100.0)));
 		items.add(new Item(ItemType.OTHER, new BigDecimal(100.0)));

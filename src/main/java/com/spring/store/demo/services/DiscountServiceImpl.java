@@ -16,15 +16,15 @@ public class DiscountServiceImpl implements DiscountService {
 		DiscountHelper helper = new DiscountHelper();
 
         BigDecimal totalAmount = helper.calculateTotal(bill.getItems());
-        BigDecimal groceryAmount = helper.calculateTotalPerType(bill.getItems(), ItemType.PHONE);
-        BigDecimal nonGroceryAmount = totalAmount.subtract(groceryAmount);
+        BigDecimal phoneAmount = helper.calculateTotalPerType(bill.getItems(), ItemType.PHONE);
+        BigDecimal nonPhoneAmount = totalAmount.subtract(phoneAmount);
         BigDecimal userDiscount = helper.getUserDiscount(user);
         BigDecimal billsDiscount = helper.calculateBillsDiscount(totalAmount, new BigDecimal(200), new BigDecimal(5));
-		if (nonGroceryAmount.compareTo(BigDecimal.ZERO) > 0) {
-			nonGroceryAmount = helper.calculateDiscount(nonGroceryAmount, userDiscount);
+		if (nonPhoneAmount.compareTo(BigDecimal.ZERO) > 0) {
+			nonPhoneAmount = helper.calculateDiscount(nonPhoneAmount, userDiscount);
 		}
 
-        BigDecimal finalAmount = (groceryAmount.add(nonGroceryAmount).subtract(billsDiscount));
+        BigDecimal finalAmount = (phoneAmount.add(nonPhoneAmount).subtract(billsDiscount));
 		return finalAmount;
 	}
 }
